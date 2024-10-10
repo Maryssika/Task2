@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.AnchorPane?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.task2.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Введите цифру для создания фигуры:" layoutX="10" layoutY="10"/>
+    <TextField fx:id="inputField" layoutX="10" layoutY="40"/>
+    <Label text="0 - Круг, 1 - прямая, 2 - угол, 3 - Треугольник, 4 - квадрат, 5 - пятиугольник" layoutX="10" layoutY="70"/>
+    <Button text="Нарисовать"  layoutX="10" layoutY="100" onAction="#addPikcher"/>
+    <Canvas fx:id="drawingCanvas" width="600" height="600" layoutX="150" layoutY="10"/>
+</VBox >
