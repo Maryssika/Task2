@@ -1,0 +1,127 @@
+@startuml
+abstract class com.example.task6.ShapeDecorator {
+# Shape decoratedShape
++ void draw(GraphicsContext,double,double,double)
++ Shape clone()
+}
+
+
+class com.example.task6.Triangle {
++ void draw(GraphicsContext,double,double,double)
++ String toString()
+}
+
+class com.example.task6.OutlineColorDecorator {
+- Color outlineColor
++ void draw(GraphicsContext,double,double,double)
+}
+
+
+class com.example.task6.Circle {
++ void draw(GraphicsContext,double,double,double)
++ String toString()
+}
+
+class com.example.task6.Pentagon {
+- double side
++ void draw(GraphicsContext,double,double,double)
++ String toString()
+}
+
+
+abstract class com.example.task6.Shape {
+# String type
+# double size
+# Paint color
+# double x
+# double y
+# boolean hasAnimation
++ {abstract}void draw(GraphicsContext,double,double,double)
++ double getX()
++ double getY()
++ boolean hasAnimation()
++ void setHasAnimation(boolean)
++ Shape clone()
++ String toString()
+}
+
+
+class com.example.task6.HelloController {
+- ListView<Shape> listView
+- Stack<Shape> shapeStack
+- Stack<Shape> redoStack
+- Canvas canvas
+- TextField sizeField
+- ColorPicker outlineColorPicker
+- TextField outlineSizeField
+- ComboBox<String> fillTypeComboBox
+- VBox solidColorBox
+- ColorPicker solidColorPicker
+- VBox gradientColorBox
+- ColorPicker gradientColorPicker1
+- ColorPicker gradientColorPicker2
+- VBox patternColorBox
+- CheckBox animationCheckBox
+- ObservableList<Shape> items
+- boolean isDrawing
+- double currentSize
+- double opacity
+- boolean increasing
+- AnimationTimer timer
++ void initialize(URL,ResourceBundle)
+- void updateVisibility(String)
+- void onMousePressed(MouseEvent)
+- void onMouseDragged(MouseEvent)
+- void onMouseReleased(MouseEvent)
++ void drawShape(MouseEvent)
++ void applySize()
++ void cleanCan()
++ void undo()
++ void redo()
+- void redrawCanvas()
+- void updateOpacity()
+}
+
+
+class com.example.task6.OutlineSizeDecorator {
+- double outlineSize
++ void draw(GraphicsContext,double,double,double)
+}
+
+
+class com.example.task6.Rectangle {
++ void draw(GraphicsContext,double,double,double)
++ String toString()
+}
+
+class com.example.task6.FillTypeDecorator {
+- Paint fillType
++ void draw(GraphicsContext,double,double,double)
+}
+
+
+class com.example.task6.Square {
++ void draw(GraphicsContext,double,double,double)
++ String toString()
+}
+
+class com.example.task6.HelloApplication {
++ void start(Stage)
++ {static} void main(String[])
+}
+
+
+
+com.example.task6.Shape <|-- com.example.task6.ShapeDecorator
+com.example.task6.Shape <|-- com.example.task6.Triangle
+com.example.task6.ShapeDecorator <|-- com.example.task6.OutlineColorDecorator
+com.example.task6.Shape <|-- com.example.task6.Circle
+com.example.task6.Shape <|-- com.example.task6.Pentagon
+com.example.task6.Cloneable <|.. com.example.task6.Shape
+javafx.fxml.Initializable <|.. com.example.task6.HelloController
+com.example.task6.ShapeDecorator <|-- com.example.task6.OutlineSizeDecorator
+com.example.task6.Shape <|-- com.example.task6.Rectangle
+com.example.task6.ShapeDecorator <|-- com.example.task6.FillTypeDecorator
+com.example.task6.Shape <|-- com.example.task6.Square
+javafx.application.Application <|-- com.example.task6.HelloApplication
+@enduml

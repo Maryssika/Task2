@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" prefHeight="520.0" prefWidth="1279.0" spacing="20.0" style="-fx-border-color: black; -fx-border-width: 2px;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.task6.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <VBox prefHeight="600.0" prefWidth="254.0" style="-fx-border-color: green; -fx-border-width: 2px;">
+        <ListView fx:id="listView" prefHeight="148.0" prefWidth="250.0" />
+        <Label text="Размер:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Label>
+        <TextField fx:id="sizeField" style="-fx-background-radius: 10;">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></TextField>
+        <Button onAction="#applySize" style="-fx-background-color: lavender; -fx-background-radius: 20;" text="Применить размер">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Button>
+        <Label text="Цвет контура:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Label>
+        <ColorPicker fx:id="outlineColorPicker" style="-fx-background-color: lavender; -fx-background-radius: 20;">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></ColorPicker>
+        <Label text="Размер контура:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Label>
+        <TextField fx:id="outlineSizeField" style="-fx-background-radius: 10;">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></TextField>
+        <Label text="Тип заполнения:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></Label>
+        <ComboBox fx:id="fillTypeComboBox" style="-fx-background-color: lavender; -fx-background-radius: 20;">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="solid" />
+                    <String fx:value="gradient" />
+                    <String fx:value="pattern" />
+                </FXCollections>
+            </items>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+        </ComboBox>
+        <VBox fx:id="solidColorBox" visible="false">
+            <Label text="Цвет:" />
+            <ColorPicker fx:id="solidColorPicker" />
+        </VBox>
+        <VBox fx:id="gradientColorBox" visible="false">
+            <Label text="Цвет градиента:" />
+            <ColorPicker fx:id="gradientColorPicker1" />
+            <ColorPicker fx:id="gradientColorPicker2" />
+        </VBox>
+        <VBox fx:id="patternColorBox" visible="false">
+            <Label text="Паттерн:" />
+            <!-- Добавьте элементы управления для выбора паттерна, если необходимо -->
+        </VBox>
+        <CheckBox fx:id="animationCheckBox" text="Добавить анимацию" />
+        <HBox alignment="CENTER">
+            <Button onAction="#undo" style="-fx-background-color: lavender; -fx-background-radius: 20;" text="←">
+            <HBox.margin>
+               <Insets top="10.0" />
+            </HBox.margin></Button>
+            <Button onAction="#redo" style="-fx-background-color: lavender; -fx-background-radius: 20;" text="→">
+            <HBox.margin>
+               <Insets top="10.0" />
+            </HBox.margin></Button>
+        </HBox>
+    </VBox>
+    <HBox prefHeight="605.0" prefWidth="441.0" style="-fx-border-color: blue; -fx-border-width: 2px;">
+        <Canvas fx:id="canvas" height="600" style="-fx-border-color: black; -fx-border-width: 2px; -fx-background-color: blue;" width="381.0" />
+        <Button onAction="#cleanCan" style="-fx-background-color: lavender; -fx-background-radius: 20;" text="Clean">
+         <HBox.margin>
+            <Insets top="10.0" />
+         </HBox.margin></Button>
+    </HBox>
+</HBox>
