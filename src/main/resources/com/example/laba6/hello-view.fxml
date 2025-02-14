@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.6" fx:controller="com.example.laba6.HelloController">
+  <!-- Инструкция с доступными фигурами -->
+  <Label layoutX="20" layoutY="10" text="Доступные фигуры:" />
+
+  <!-- Выбор фигуры из списка -->
+  <ListView fx:id="shapeListView" layoutX="20" layoutY="40" prefHeight="74.0" prefWidth="572.0">
+    <items>
+      <FXCollections fx:factory="observableArrayList">
+        <String fx:value="Круг" />
+        <String fx:value="Треугольник" />
+        <String fx:value="Квадрат" />
+      </FXCollections>
+    </items>
+  </ListView>
+
+  <!-- Выбор цвета -->
+  <ColorPicker fx:id="colorPicker" layoutX="441.0" layoutY="506.0" />
+
+  <!-- Текстовое поле для ввода размера фигуры -->
+  <TextField fx:id="sizeInput" layoutX="20.0" layoutY="505.0" prefHeight="26.0" prefWidth="158.0" promptText="Введите размер фигуры" />
+
+  <!-- Кнопка для очистки -->
+  <Button layoutX="211.0" layoutY="506.0" onAction="#onClear" text="Очистить" />
+
+  <!-- Кнопка для отмены последнего действия -->
+  <Button layoutX="306.0" layoutY="506.0" onAction="#onUndo" text="Отменить" />
+
+  <!-- Холст для рисования фигур -->
+  <Canvas fx:id="canvas" height="286.0" layoutY="167.0" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" width="600" />
+</AnchorPane>
