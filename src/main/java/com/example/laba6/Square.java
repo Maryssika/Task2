@@ -26,6 +26,7 @@ public class Square extends Shape {
     public Shape clone() {
         return new Square(color, side);
     }
+    @Override
     public void setColor(Color color) {
         this.color = color;
     }

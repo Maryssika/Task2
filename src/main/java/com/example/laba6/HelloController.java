@@ -124,6 +124,20 @@ public class HelloController {
         }
     }
 
+    // Метод для перекраски всех фигур в один цвет
+    public void recolorShapes (Color newColor) {
+        for (Shape shape : shapes) {
+            shape.setColor(newColor);
+        }
+        redrawCanvas(); // Перерисовываем холст после изменения цвета
+    }
+    // Обработчик для кнопки перекраски
+    @FXML
+    private void onRecolor() {
+        Color newColor = colorPicker.getValue(); // Получаем новый цвет из ColorPicker
+        recolorShapes(newColor); // Перекрашиваем все фигуры
+    }
+
     // Метод для отмены последнего действия
     public void onUndo() {
         if (!undoStack.isEmpty()) {
@@ -140,12 +154,6 @@ public class HelloController {
         for (Shape shape : shapes) {
             shape.draw(gc);
         }
-        // Метод для перекраски всех фигур в один цвет
-        public void recolorShapes (Color newColor) {
-            for (Shape shape : shapes) {
-                shape.setColor(newColor);
-            }
-            redrawCanvas(); // Перерисовываем холст после изменения цвета
-        }
+
     }
 }

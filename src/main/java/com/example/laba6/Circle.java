@@ -27,6 +27,7 @@ public class Circle extends Shape {
         return new Circle(color, radius);
     }
 
+    @Override
     public void setColor(Color color) {
         this.color = color;
     }

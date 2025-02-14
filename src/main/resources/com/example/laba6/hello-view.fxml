@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.6" fx:controller="com.example.laba6.HelloController">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.laba6.HelloController">
   <!-- Инструкция с доступными фигурами -->
   <Label layoutX="20" layoutY="10" text="Доступные фигуры:" />
 
@@ -32,6 +32,9 @@
 
   <!-- Кнопка для отмены последнего действия -->
   <Button layoutX="306.0" layoutY="506.0" onAction="#onUndo" text="Отменить" />
+
+  <!-- Кнопка для перекраски фигур -->
+  <Button layoutX="478.0" layoutY="466.0" onAction="#onRecolor" text="Перекрасить" />
 
   <!-- Холст для рисования фигур -->
   <Canvas fx:id="canvas" height="286.0" layoutY="167.0" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" width="600" />
