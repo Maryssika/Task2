@@ -33,6 +33,7 @@ public class HelloController {
     private ShapeFactory shapeFactory = new ShapeFactory();
     private ArrayList<Shape> shapes = new ArrayList<>();
     private Stack<Shape> undoStack = new Stack<>();
+    private Stack<Map<Shape, Color>> colorStack = new Stack<>();
     private PriorityQueue<String> shapeQueue = new PriorityQueue<>();
     private Map<String, Integer> shapeCountMap = new HashMap<>();
 
@@ -128,11 +129,14 @@ public class HelloController {
         }
     }
 
-    // Метод для перекраски всех фигур в один цвет
-    public void recolorShapes (Color newColor) {
+   // Метод для перекраски всех фигур в один цвет
+    public void recolorShapes(Color newColor) {
+        Map<Shape, Color> previousColors = new HashMap<>(); // Сохраняем предыдущие цвета
         for (Shape shape : shapes) {
-            shape.setColor(newColor);
+            previousColors.put(shape, shape.getColor()); // Сохраняем текущий цвет фигуры
+            shape.setColor(newColor); // Устанавливаем новый цвет
         }
+        colorStack.push(previousColors); // Сохраняем предыдущие цвета в стек
         redrawCanvas(); // Перерисовываем холст после изменения цвета
     }
 
@@ -145,10 +149,14 @@ public class HelloController {
 
     // Метод для отмены последнего действия
     public void onUndo() {
-        if (!undoStack.isEmpty()) {
-            Shape lastShape = undoStack.pop();
-            shapes.remove(lastShape);
-            redrawCanvas();
+        if (!colorStack.isEmpty()) {
+            Map<Shape, Color> previousColors = colorStack.pop(); // Получаем предыдущие цвета
+            for (Shape shape : shapes) {
+                if (previousColors.containsKey(shape)) {
+                    shape.setColor(previousColors.get(shape)); // Восстанавливаем предыдущий цвет
+                }
+            }
+            redrawCanvas(); // Перерисовываем холст
         }
     }
 
