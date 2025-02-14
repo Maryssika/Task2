@@ -160,6 +160,15 @@ public class HelloController {
         }
     }
 
+    // Метод для отмены последнего нарисованного элемента
+    public void onUndo1() {
+        if (!shapes.isEmpty()) {
+            Shape lastShape = shapes.remove(shapes.size() - 1); // Удаляем последнюю фигуру
+            undoStack.push(lastShape); // Сохраняем удаленную фигуру в стек для возможного восстановления
+            redrawCanvas(); // Перерисовываем холст
+        }
+    }
+
     // Перерисовываем холст с учетом удаленных фигур
     private void redrawCanvas() {
         GraphicsContext gc = canvas.getGraphicsContext2D();

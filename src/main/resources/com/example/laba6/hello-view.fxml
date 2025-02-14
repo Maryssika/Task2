@@ -28,10 +28,13 @@
   <TextField fx:id="sizeInput" layoutX="20.0" layoutY="505.0" prefHeight="26.0" prefWidth="158.0" promptText="Введите размер фигуры" />
 
   <!-- Кнопка для очистки -->
-  <Button layoutX="211.0" layoutY="506.0" onAction="#onClear" text="Очистить" />
+  <Button layoutX="180.0" layoutY="506.0" onAction="#onClear" text="Очистить" />
 
   <!-- Кнопка для отмены последнего действия -->
-  <Button layoutX="306.0" layoutY="506.0" onAction="#onUndo" text="Отменить" />
+  <Button layoutX="256.0" layoutY="506.0" onAction="#onUndo" text="Отменить" />
+
+  <!-- Кнопка для отмены последнего нарисованного элемента -->
+  <Button layoutX="336.0" layoutY="506.0" onAction="#onUndo1" text="Стереть" />
 
   <!-- Кнопка для перекраски фигур -->
   <Button layoutX="478.0" layoutY="466.0" onAction="#onRecolor" text="Перекрасить" />
