@@ -1,5 +1,7 @@
 package com.example.laba6;
 
+import Factory.ShapeFactory;
+import Figyri.Shape;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;

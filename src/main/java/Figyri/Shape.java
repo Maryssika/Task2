@@ -1,4 +1,4 @@
-package com.example.laba6;
+package Figyri;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -16,7 +16,7 @@ public abstract class Shape {
     public abstract double area();
 
     // Абстрактный метод для рисования
-    abstract void draw(GraphicsContext gr);
+    public abstract void draw(GraphicsContext gr);
 
     // Метод для рисования в заданных координатах
     public void draw(GraphicsContext gr, double x, double y) {

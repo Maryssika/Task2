@@ -1,4 +1,4 @@
-package com.example.laba6;
+package Figyri;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
