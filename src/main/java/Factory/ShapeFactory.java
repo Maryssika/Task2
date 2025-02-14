@@ -1,9 +1,11 @@
 package Factory;
+
 import Figyri.Circle;
 import Figyri.Shape;
 import Figyri.Square;
 import Figyri.Triangle;
 import javafx.scene.paint.Color;
+
 public class ShapeFactory {
     public Shape createShape(String shapeType, Color color, double... params) {
         switch (shapeType.toLowerCase()) {

@@ -20,6 +20,7 @@ public class Triangle extends Shape {
     @Override
     public void draw(GraphicsContext gr) {
         gr.setFill(color);
+
         // Рисуем треугольник с вершиной вверх
         gr.fillPolygon(
                 new double[]{x - base / 2, x, x + base / 2},  // X координаты вершин

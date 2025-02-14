@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HelloController {
+
     @FXML
     private Canvas canvas;
     @FXML
@@ -118,6 +119,7 @@ public class HelloController {
                 // Обновляем статистику
                 shapeQueue.add(shapeName);
                 shapeCountMap.put(shapeName, shapeCountMap.getOrDefault(shapeName, 0) + 1);
+
                 // Создаем новую фигуру для следующего рисования
                 currentShape = createShapeByName(shapeName, color, size);
             } else {
@@ -133,6 +135,7 @@ public class HelloController {
         }
         redrawCanvas(); // Перерисовываем холст после изменения цвета
     }
+
     // Обработчик для кнопки перекраски
     @FXML
     private void onRecolor() {
@@ -156,6 +159,5 @@ public class HelloController {
         for (Shape shape : shapes) {
             shape.draw(gc);
         }
-
     }
 }
