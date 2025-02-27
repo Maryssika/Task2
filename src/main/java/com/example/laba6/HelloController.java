@@ -123,7 +123,8 @@ public class HelloController {
 
                 // Создаем новую фигуру для следующего рисования
                 currentShape = createShapeByName(shapeName, color, size);
-            } else {
+            }
+            else {
                 showAlert("Ошибка", "Неверное название фигуры.");
             }
         }
